@@ -1,0 +1,27 @@
+type,value,description,first_seen,confidence,tags
+sha256,fc870a5ed14512ab04816681ce7fdab545e455e8e74f76f394486192f33536c5,MSI masquerading as "Killer Network Service 2.6" (Qualcomm) - PavinLoader dropper (on-disk name ucmbvtHWySiuyVtT.msi; VirusTotal page lists ucmbvtHWySiuyVTi.msi),2026-10-28,high,pavinloader;fake-installer;easeus-campaign
+sha256,55c42ed6c1c610b78e99ade2ac9e47648aafdc2d8112c621b4a1f25c2497866d,MSI masquerading as "PhysX Runtime 7.0" (NVIDIA) - PavinLoader dropper (ucmbvtb82PCMK39f.msi),2026-10-28,high,pavinloader;fake-installer;easeus-campaign
+sha256,6bc58e85a42bcf60df74c23de212c882d8fdc5e6a60f20f5f3c5e392da6b0ad0,Tampered MSBuild.exe 4.8.9032.0 (genuine Microsoft signature; Authenticode HashMismatch),2026-10-28,high,pavinloader;msbuild-abuse;t1127.001
+sha256,30d16380654c4cb4eebd6c6cdc5ce1d13c04f2ad3467fd9e1514c7df1471c993,Fake CatalogIngestor Resources.resx - 31.6 MB hex-blob payload carrier,2026-10-28,high,pavinloader;payload-carrier
+sha256,e20c494d8d081353f4d188ba88304028496165467486903338142a94b634ef5a,Internal.targets - MSBuild property-function loader (XOR-6 nibble decode; rotation 142132; AppDomain.Load),2026-10-28,high,pavinloader;msbuild-abuse;t1127.001
+sha256,7123e1514b939b165985560057fe3c761440a9fff9783a3b84e861fd2888d4ab,Unsigned Setup.exe inside Ren'Py 8.1.3 bundle masquerading as "EaseUS Partition Master 2026" (MB: Generic.Malware/Suspicious),2026-10-28,high,fake-crack;easeus-campaign
+sha256,b1f19e6504e31fbe0e3af05da792cb7fac8a9b7427f0928d6d26cdfe75d3c7bf,Outer ZIP "…EaseUS_Partition_Master_202_Archive_free_3295.zip",2026-10-28,high,fake-crack;easeus-campaign
+sha256,60243afc645a61f3b4d772c2ac2314e12083436d8e55673aea05a1357b09267b,data\UbOYXd3QkSYr.St - 31 MB unidentified blob in fake bundle,2026-10-28,medium,fake-crack;easeus-campaign
+sha256,2581f6eafc091cca2a6819a2684b175163e0b3b2230710fd95f5194aff176de3,data\.BRn - 368-byte base64 config blob in fake bundle,2026-10-28,medium,fake-crack;easeus-campaign
+domain,m5u1iioax.store,Fake-hoster gateway apex (registered ~2026-10-24; Cloudflare AS13335),2026-10-28,high,fake-hoster;cloaked;easeus-campaign
+domain,box-tfdg.m5u1iioax.store,Gateway skin "DropVault",2026-10-28,high,fake-hoster;easeus-campaign
+domain,save-njbg.m5u1iioax.store,Gateway skin,2026-10-28,high,fake-hoster;easeus-campaign
+domain,blob-imrx.m5u1iioax.store,Gateway skin,2026-10-28,high,fake-hoster;easeus-campaign
+domain,upload-atd5.m5u1iioax.store,Gateway skin,2026-10-28,high,fake-hoster;easeus-campaign
+domain,mirrorgcve.m5u1iioax.store,Gateway skin,2026-10-28,high,fake-hoster;easeus-campaign
+domain,inspectv2lf.m5u1iioax.store,Gateway subdomain captured by urlscan 2026-10-28 (404 to scanners),2026-10-28,high,fake-hoster;cloaked;easeus-campaign
+msi-product-code,{96447065-A735-4A79-BA59-A2679E7BAFEF},"ProductCode of fake ""Killer Network Service"" MSI; drop dir %LOCALAPPDATA%\Qualcomm\Killer Network Service; CA runs Antlr3Runtime.lnk",2026-10-28,high,pavinloader;fake-installer
+msi-product-code,{3B086246-E935-41F8-BE45-676EF3138112},"ProductCode of fake ""PhysX Runtime"" MSI; drop dir %LOCALAPPDATA%\NVIDIA\PhysX Runtime; CA runs MasterDataManager.lnk",2026-10-28,high,pavinloader;fake-installer
+string,CloneExtensions.FallbackProvider5,In-memory payload type instantiated by AppDomain.Load in the MSBuild loader,2026-10-28,high,pavinloader;msbuild-abuse
+string,PackageRestoreData977,Decoy/alias property in CatalogIngestor.csproj.user,2026-10-28,high,pavinloader;msbuild-abuse
+string,MSBUILDENABLEALLPROPERTYFUNCTIONS=1,Environment flag set by build.cmd to unlock MSBuild property functions,2026-10-28,high,pavinloader;msbuild-abuse;t1127.001
+string,mr2127a58,localStorage/cookie command-channel key of the injected download-button script,2026-10-28,high,injected-button;fake-hoster
+string,iqbydwfv,Random package-id slug in CatalogIngestor.Shared.props nuget URL,2026-10-28,medium,pavinloader;camouflage
+filename,Antlr3Runtime.lnk,Shortcut launched by fake "Killer Network Service" MSI custom action,2026-10-28,high,pavinloader;fake-installer
+filename,MasterDataManager.lnk,Shortcut launched by fake "PhysX Runtime" MSI custom action,2026-10-28,high,pavinloader;fake-installer
+pattern,ucmbvt*,Random-name prefix of MSI droppers and their %TEMP% working directories,2026-10-28,medium,pavinloader;naming-convention

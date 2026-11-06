@@ -1,0 +1,41 @@
+{
+  "name": "PavinLoader - EaseUS fake-crack campaign",
+  "author": "fotedev",
+  "first_seen": "2026-10-28",
+  "published": "2026-10-29",
+  "license": "CC0-1.0 (data) / MIT (rest)",
+  "description": "Fake-crack download flow (injected button on an Arabic software site -> fake hoster gateway *.m5u1iioax.store -> Ren'Py bundle masquerading as EaseUS Partition Master -> fake driver MSIs -> fileless MSBuild property-function loader; Malwarebytes: Trojan.PavinLoader). No samples hosted; hashes and patterns only.",
+  "references": [
+    "https://urlscan.io/api/v1/search/?q=domain:m5u1iioax.store",
+    "https://threats.kaspersky.com/en/threat/Trojan.WinLNK.Agent/",
+    "https://blog.talosintelligence.com/building-bypass-with-msbuild/"
+  ],
+  "objects": [
+    {"type": "sha256", "value": "fc870a5ed14512ab04816681ce7fdab545e455e8e74f76f394486192f33536c5", "description": "MSI 'Killer Network Service 2.6' (Qualcomm) dropper", "tags": ["pavinloader", "fake-installer"], "confidence": 100},
+    {"type": "sha256", "value": "55c42ed6c1c610b78e99ade2ac9e47648aafdc2d8112c621b4a1f25c2497866d", "description": "MSI 'PhysX Runtime 7.0' (NVIDIA) dropper", "tags": ["pavinloader", "fake-installer"], "confidence": 100},
+    {"type": "sha256", "value": "6bc58e85a42bcf60df74c23de212c882d8fdc5e6a60f20f5f3c5e392da6b0ad0", "description": "Tampered MSBuild.exe 4.8.9032.0 (Authenticode HashMismatch)", "tags": ["pavinloader", "t1127.001"], "confidence": 100},
+    {"type": "sha256", "value": "30d16380654c4cb4eebd6c6cdc5ce1d13c04f2ad3467fd9e1514c7df1471c993", "description": "31.6 MB Resources.resx payload carrier", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "sha256", "value": "e20c494d8d081353f4d188ba88304028496165467486903338142a94b634ef5a", "description": "Internal.targets loader", "tags": ["pavinloader", "t1127.001"], "confidence": 100},
+    {"type": "sha256", "value": "7123e1514b939b165985560057fe3c761440a9fff9783a3b84e861fd2888d4ab", "description": "Unsigned Setup.exe in Ren'Py fake 'EaseUS' bundle", "tags": ["fake-crack"], "confidence": 100},
+    {"type": "sha256", "value": "b1f19e6504e31fbe0e3af05da792cb7fac8a9b7427f0928d6d26cdfe75d3c7bf", "description": "Outer ZIP package", "tags": ["fake-crack"], "confidence": 100},
+    {"type": "sha256", "value": "60243afc645a61f3b4d772c2ac2314e12083436d8e55673aea05a1357b09267b", "description": "data\\UbOYXd3QkSYr.St blob", "tags": ["fake-crack"], "confidence": 60},
+    {"type": "sha256", "value": "2581f6eafc091cca2a6819a2684b175163e0b3b2230710fd95f5194aff176de3", "description": "data\\.BRn config blob", "tags": ["fake-crack"], "confidence": 60},
+    {"type": "domain", "value": "m5u1iioax.store", "description": "Fake-hoster gateway apex (~2026-10-24, Cloudflare)", "tags": ["fake-hoster", "cloaked"], "confidence": 100},
+    {"type": "domain", "value": "box-tfdg.m5u1iioax.store", "description": "Gateway skin 'DropVault'", "tags": ["fake-hoster"], "confidence": 100},
+    {"type": "domain", "value": "save-njbg.m5u1iioax.store", "description": "Gateway skin", "tags": ["fake-hoster"], "confidence": 100},
+    {"type": "domain", "value": "blob-imrx.m5u1iioax.store", "description": "Gateway skin", "tags": ["fake-hoster"], "confidence": 100},
+    {"type": "domain", "value": "upload-atd5.m5u1iioax.store", "description": "Gateway skin", "tags": ["fake-hoster"], "confidence": 100},
+    {"type": "domain", "value": "mirrorgcve.m5u1iioax.store", "description": "Gateway skin", "tags": ["fake-hoster"], "confidence": 100},
+    {"type": "domain", "value": "inspectv2lf.m5u1iioax.store", "description": "Gateway subdomain (urlscan 2026-10-28)", "tags": ["fake-hoster", "cloaked"], "confidence": 100},
+    {"type": "other", "value": "{96447065-A735-4A79-BA59-A2679E7BAFEF}", "description": "MSI ProductCode - fake 'Killer Network Service'", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "other", "value": "{3B086246-E935-41F8-BE45-676EF3138112}", "description": "MSI ProductCode - fake 'PhysX Runtime'", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "other", "value": "CloneExtensions.FallbackProvider5", "description": "In-memory payload type", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "other", "value": "PackageRestoreData977", "description": "Loader kit property alias", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "other", "value": "MSBUILDENABLEALLPROPERTYFUNCTIONS=1", "description": "Abuse flag set by build.cmd", "tags": ["pavinloader", "t1127.001"], "confidence": 100},
+    {"type": "other", "value": "mr2127a58", "description": "Injected button command-channel key", "tags": ["injected-button"], "confidence": 100},
+    {"type": "other", "value": "iqbydwfv", "description": "Random nuget slug in kit", "tags": ["pavinloader"], "confidence": 60},
+    {"type": "filename", "value": "Antlr3Runtime.lnk", "description": "Launched by fake Killer MSI", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "filename", "value": "MasterDataManager.lnk", "description": "Launched by fake PhysX MSI", "tags": ["pavinloader"], "confidence": 100},
+    {"type": "pattern", "value": "ucmbvt*", "description": "Dropper naming convention", "tags": ["pavinloader"], "confidence": 60}
+  ]
+}
